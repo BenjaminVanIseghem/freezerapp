@@ -4,13 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//require data items
+require('./models/Freezer');
+require('./models/Compartment');
+require('./models/Item');
+//mongoose
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/freezerdb');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/freezerdb');
 
 app.use(logger('dev'));
 app.use(express.json());
