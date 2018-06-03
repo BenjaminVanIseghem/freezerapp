@@ -22,7 +22,6 @@ import { FreezerModule } from './freezer/freezer.module';
     HttpClientModule,
     HttpModule,
     FormsModule,
-    //FreezerModule,
     AppRoutingModule,
   ],
   providers: [],
