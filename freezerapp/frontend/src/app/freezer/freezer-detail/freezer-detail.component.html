@@ -1,3 +1,20 @@
-<p>
-  freezer-detail works!
-</p>
+<div class="ui card">
+  <div *ngIf='errorMsg' class="ui error message">{{errorMsg}}</div>
+  <div class="content">
+    <div class="header">Compartments for {{ freezer.name }}</div>
+    <div class="meta">
+      <span class="date">added on {{freezer.created | date}}</span>
+    </div>
+    <ul class="ui list">
+      <li *ngFor='let comp of freezer.compartments'>
+        <app-compartment [compartment]='comp'></app-compartment>
+        <button class="ui icon button" (click)="removeCompartment()">
+            <i class="trash outline icon"></i>
+          </button>
+      </li>
+    </ul>
+    <div class="input"></div>
+    <input type="text" class="text">
+    <button class="ui icon button" (click)="addCompartment()">+</button>
+  </div>
+</div>

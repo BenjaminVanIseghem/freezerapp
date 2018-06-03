@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Compartment } from './compartment.model';
 
 @Component({
   selector: 'app-compartment',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./compartment.component.css']
 })
 export class CompartmentComponent implements OnInit {
+  @Input() public compartment: Compartment;
+  private _size: number;
 
-  constructor() { }
+  constructor() {
+
+   }
 
   ngOnInit() {
+    this._size = this.compartment.items.length;
+  }
+
+  get size(): number{
+    return this._size;
   }
 
 }
