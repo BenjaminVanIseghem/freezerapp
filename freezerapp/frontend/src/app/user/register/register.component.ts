@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, AbstractControl, ValidatorFn, Validators } from '@angular/forms';
+import { FormGroup, AbstractControl, ValidatorFn, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +12,12 @@ import { map } from 'rxjs/operators';
 })
 export class RegisterComponent implements OnInit {
   public user: FormGroup;
-  private authenticationService: AuthenticationService,
-  private router: Router;
-  private fb: FormBuilder;
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.user = this.fb.group({

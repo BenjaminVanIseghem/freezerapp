@@ -9,20 +9,6 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-passport.use(new LocalStrategy(
-  function (username, password, done) {
-      User.findOne({ username: username }, function (err, user) {
-          if (err) { return done(err); }
-          if (!user) {
-              return done(null, false, { message: 'Incorrect username.' });
-          }
-          if (!user.validPassword(password)) {
-              return done(null, false, { message: 'Incorrect password.' });
-          }
-          return done(null, user);
-      });
-  }));
-
 //register new user with jwt
 router.post('/register', function(req, res, next){
   if(!req.body.username || !req.body.password){

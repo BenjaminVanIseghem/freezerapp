@@ -9,5 +9,6 @@ let FreezerSchema = new mongoose.Schema({
     }
   ],
   created : {type: Date, default: Date.now}
-});	
+});
+	
 mongoose.model('Freezer', FreezerSchema);
