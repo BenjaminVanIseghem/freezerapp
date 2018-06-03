@@ -8,8 +8,11 @@ var logger = require('morgan');
 require('./models/Freezer');
 require('./models/Compartment');
 require('./models/Item');
-let passport = require('passport');
-require('./config/passport');
+require('./models/User');
+//require('./config/passport');
+//let passport = require('passport');
+
+
 //mongoose
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/freezerdb');
@@ -24,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(passport.initialize());
+//app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

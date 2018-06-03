@@ -1,3 +1,6 @@
-<p>
-  register works!
-</p>
+<label for="username">username:</label>
+<input type="text" id="username" formControlName='username'>
+<div class='ui pointing red basic label' 
+  *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
+    a user with that name already exists
+</div>
