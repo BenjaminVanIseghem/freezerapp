@@ -11,7 +11,7 @@ import { Item } from './item/item.model';
 @Injectable()
 export class FreezerDataService {
 
-    private readonly _appUrl = '/API';
+    private readonly _appUrl = '/API/';
 
 
     constructor(private http : HttpClient) {

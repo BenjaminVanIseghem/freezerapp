@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FreezerModule } from './freezer/freezer.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     HttpModule,
     FormsModule,
+    //FreezerModule,
     AppRoutingModule,
   ],
   providers: [],
