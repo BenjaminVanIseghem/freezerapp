@@ -8,14 +8,12 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { FreezerDetailComponent } from './freezer/freezer-detail/freezer-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
-    FreezerDetailComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

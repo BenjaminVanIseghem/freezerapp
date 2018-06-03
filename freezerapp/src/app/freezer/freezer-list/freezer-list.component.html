@@ -1,3 +1,15 @@
-<p>
-  freezer-list works!
-</p>
+<div class="ui segment">
+  <div *ngIf='errorMsg' class="ui error message">{{errorMsg}}</div>
+  <div class="ui basic segment">
+    <div class="ui two fields">
+      <div class="ui input">
+        <input (keyup)='filterFreezer$.next($event.target.value)' type='text' id='filter' name='filter' placeholder='filter freezer name...'>
+      </div>
+    </div>
+  </div>
+  <div class="ui basic segment">
+    <div class="ui cards">
+      <app-freezer *ngFor='let fre of freezers | freezerFilter:filterFreezerName' [freezer]='fre' (deleteFreezer)='removeFreezer($event)'></app-freezer>
+    </div>
+  </div>
+</div>

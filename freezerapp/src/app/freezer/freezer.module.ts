@@ -10,6 +10,7 @@ import { AddFreezerComponent } from "./add-freezer/add-freezer.component";
 import { FreezerListComponent } from "./freezer-list/freezer-list.component";
 import { FreezerDetailComponent } from "./freezer-detail/freezer-detail.component";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FreezerFilterPipe } from './freezer-filter.pipe';
 
 
 const routes = [
@@ -32,7 +33,8 @@ const routes = [
         ItemComponent,
         FreezerDetailComponent,
         FreezerListComponent,
-        AddFreezerComponent
+        AddFreezerComponent,
+        FreezerFilterPipe
     ],
     providers: [
         FreezerDataService,

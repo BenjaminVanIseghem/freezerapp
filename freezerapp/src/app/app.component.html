@@ -3,7 +3,7 @@
 </div>
 
 <div class="ui three item menu">
-  <a class='item' routerLinkActive='active' routerLink="/freezer/list">Freezers</a>
+  <a class='item' routerLinkActive='active' routerLink="freezer/list">Freezers</a>
 
   <a class='item' routerLinkActive='active' routerLink="freezer/add">Add Freezer</a>
   <a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/logout">{{currentUser|async}}</a>

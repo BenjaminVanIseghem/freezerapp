@@ -1,3 +1,16 @@
-<p>
-  freezer works!
-</p>
+<div class="ui card">
+  <div class="content">
+    <a class="header" href='/freezer/detail/{{freezer.id}}'>{{ freezer.name }}</a>
+      <div class="meta">
+        <span class="date">added on {{freezer.created | date}}</span>
+      </div>
+      <ul class="ui list">
+        <li *ngFor='let comp of freezer.compartments'>
+          <app-compartment [compartment]='comp'></app-compartment>
+        </li>
+      </ul>
+      <button class="ui icon button" (click)="removeFreezer()">
+        <i class="trash outline icon"></i>
+      </button>
+  </div>
+</div>
