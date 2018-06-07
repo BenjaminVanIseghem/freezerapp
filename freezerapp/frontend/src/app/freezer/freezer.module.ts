@@ -17,9 +17,11 @@ import { FreezerResolver } from "./freezer-resolver";
 
 const routes = [
     { path: 'list', component: FreezerListComponent},
-    { path: 'detail/:id', component: FreezerDetailComponent,
-            resolve: { freezer : FreezerResolver}},
-    {path: 'detail/:freid/compartment/:compid', component: ItemComponent},
+    { 
+        path: 'detail/:id', component: FreezerDetailComponent,
+            resolve: { freezer : FreezerResolver},
+            child:{path: 'compartment/:compid', component: CompartmentComponent}
+    },
     { path: 'add', component: AddFreezerComponent}
   ];
   @NgModule({

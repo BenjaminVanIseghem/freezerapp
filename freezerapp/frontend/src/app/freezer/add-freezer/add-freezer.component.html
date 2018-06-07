@@ -1,3 +1,30 @@
-<p>
-  add-freezer works!
-</p>
+<div class="ui segment">
+  <div *ngIf='errorMsg' class="ui error message">{{errorMsg}}</div>
+  <form class='ui form' [formGroup]='freezer' (ngSubmit)='onSubmitFreezer()'>
+    <h4 class="ui dividing header">add freezer</h4>
+    <div class='field'>
+      <label for='name_id'>name:</label>
+      <input type='text' id='name_id' formControlName='name'>
+    </div>
+    <div *ngIf='freezer.get("name").errors?.required && freezer.get("name").touched' 
+      class='ui pointing red basic label'>
+      error! this is required
+    </div>
+
+    <div class="field">
+      <label for="compartment_name">compartments</label>
+      <div formArrayName='compartments' *ngFor='let item of compartments.controls; let i = index'>
+        <div [formGroupName]='i'>
+          <div class="field">
+            <input type="text" id="compartment_name" formControlName='compartmentname'>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="ui positive right button">
+        add freezer
+    </button>
+    
+  </form>
+</div>

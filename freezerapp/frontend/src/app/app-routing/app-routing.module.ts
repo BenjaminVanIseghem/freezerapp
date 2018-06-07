@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { SelectivePreloadStrategy } from './SelectivePreloadStrategy';
-import { FreezerListComponent } from '../freezer/freezer-list/freezer-list.component';
 
 const appRoutes: Routes = [
   { 
