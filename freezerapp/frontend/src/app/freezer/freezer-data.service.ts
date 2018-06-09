@@ -37,12 +37,12 @@ export class FreezerDataService {
     //WORKS
     removeFreezer(fre : Freezer) : Observable<Freezer>{
       return this.http
-          .delete('${this._appUrl}freezer/${fre.id}')
+          .delete(`${this._appUrl}freezers/${fre.id}`)
           .pipe(map(Freezer.fromJSON));
     }
     //WORKS
     addCompartmentToFreezer(comp: Compartment, fre: Freezer): Observable<Compartment> {
-      const theUrl = `${this._appUrl}/freezer/${fre.id}/compartments`;
+      const theUrl = `${this._appUrl}freezers/${fre.id}/compartments`;
       return this.http
           .post(theUrl, comp)
           .pipe(map(Compartment.fromJSON));

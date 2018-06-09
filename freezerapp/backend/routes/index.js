@@ -129,7 +129,7 @@ router.post('/API/freezers/', function (req, res, next) {
 
 //post new compartment in freezer WORKS
 router.post('/API/freezers/:freezer/compartments', function(req, res, next) {
-  let comp = new Compartment(req.body);
+  let comp = new Compartment(req.body.name);
 
   comp.save(function(err, compartment) {
     if (err) return next(err);

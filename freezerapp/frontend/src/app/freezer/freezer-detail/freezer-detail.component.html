@@ -13,8 +13,23 @@
           </button>
       </li>
     </ul>
-    <div class="input"></div>
-    <input type="text" class="text">
-    <button class="ui icon button" (click)="addCompartment()">+</button>
-  </div>
 </div>
+</div>
+
+
+<form class='ui form' [formGroup]='fb' (ngSubmit)='onSubmitCompartment()'>
+  <h4 class="ui dividing header">add compartment</h4>
+  <div class='field'>
+    <label for='name_id'>name:</label>
+    <input type='text' id='name_id' formControlName='name'>
+  </div>
+  <div *ngIf='fb.get("name").errors?.required && fb.get("name").touched' 
+    class='ui pointing red basic label'>
+    error! this is required
+  </div>
+
+  <button type="submit" class="ui positive right button">
+      add compartment
+  </button>
+  
+</form>
