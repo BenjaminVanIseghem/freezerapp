@@ -1,35 +1,33 @@
 <div class="ui card">
   <div *ngIf='errorMsg' class="ui error message">{{errorMsg}}</div>
-  <div class="content">
-    <div class="header">Compartments for {{ freezer.name }}</div>
-    <div class="meta">
-      <span class="date">added on {{freezer.created | date}}</span>
+    <div class="content">
+        <div class="header">Compartments for {{ freezer.name }}</div>
+        <div class="meta">
+          <span class="date">added on {{freezer.created | date}}</span>
+        </div>
+        <ul class="ui list">
+          <li *ngFor='let comp of _freezer.compartments'>
+            <app-compartment [compartment]='comp'></app-compartment>
+            <button class="ui icon button" (click)="removeCompartment()">
+                <i class="trash outline icon"></i>
+              </button>
+          </li>
+        </ul>
     </div>
-    <ul class="ui list">
-      <li *ngFor='let comp of freezer.compartments'>
-        <app-compartment [compartment]='comp'></app-compartment>
-        <button class="ui icon button" (click)="removeCompartment()">
-            <i class="trash outline icon"></i>
-          </button>
-      </li>
-    </ul>
-</div>
 </div>
 
+  <form class='ui form' [formGroup]='fg' (ngSubmit)='onSubmitCompartment()'>
+    <h4 class="ui dividing header">add compartment</h4>
+    <div class='field'>
+      <label for='name_id'>name:</label>
+      <input type='text' id='name_id' formControlName='name'>
+    </div>
+    <div *ngIf='fg.get("name").errors?.required && fg.get("name").touched' 
+      class='ui pointing red basic label'>
+      error! this is required
+    </div>
 
-<form class='ui form' [formGroup]='fb' (ngSubmit)='onSubmitCompartment()'>
-  <h4 class="ui dividing header">add compartment</h4>
-  <div class='field'>
-    <label for='name_id'>name:</label>
-    <input type='text' id='name_id' formControlName='name'>
-  </div>
-  <div *ngIf='fb.get("name").errors?.required && fb.get("name").touched' 
-    class='ui pointing red basic label'>
-    error! this is required
-  </div>
-
-  <button type="submit" class="ui positive right button">
-      add compartment
-  </button>
-  
-</form>
+    <button type="submit" class="ui positive right button">
+        add compartment
+    </button>
+  </form>

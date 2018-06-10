@@ -40,18 +40,6 @@ export class FreezerDetailComponent implements OnInit {
     return this._freezer;
   }
 
-  // addCompartment(name : string){
-  //   const comp = new Compartment(this.fg.value.name);
-  //   this._freezer.addCompartment(comp);
-  //   this._freezerDataService.addCompartmentToFreezer(comp, this._freezer).subscribe(
-  //     () => {},
-  //     (error: HttpErrorResponse) => {
-  //       this.errorMsg = `Error ${error.status} while adding
-  //         compartment for ${comp.name}: ${error.error}`;
-  //     }
-  //   );
-  // }
-
   onSubmitCompartment() {
     const comp = new Compartment(this.fg.value.name);
     this._freezerDataService.addCompartmentToFreezer(comp, this._freezer).subscribe(

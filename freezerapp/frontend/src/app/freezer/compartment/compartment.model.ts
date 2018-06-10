@@ -31,7 +31,7 @@ export class Compartment{
         return comp;
       }
 
-      toJSON() {
+    toJSON() {
         return {
           _id: this._id,
           name: this._name,

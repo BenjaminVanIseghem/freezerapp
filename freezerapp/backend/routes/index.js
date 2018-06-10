@@ -127,21 +127,21 @@ router.post('/API/freezers/', function (req, res, next) {
     });
 });
 
-//post new compartment in freezer WORKS
+//post new compartment in freezer   XXXXXXX
 router.post('/API/freezers/:freezer/compartments', function(req, res, next) {
   let comp = new Compartment(req.body.name);
 
   comp.save(function(err, compartment) {
     if (err) return next(err);
 
-    req.freezer.compartments.push(compartment);
-    req.freezer.save(function(err, fre) {
-      if (err){ 
-        Compartment.remove({ _id: { $in: freezer.compartments } });
-        return next(err);
-      }
+    // req.freezer.compartments.push(compartment);
+    // req.freezer.save(function(err, compart) {
+    //   if (err){ 
+    //     Compartment.remove({ _id: { $in: req.freezer.compartments } });
+    //     return next(err);
+    //   }
       res.json(compartment);
-    })
+    //})
   });
 });
 
