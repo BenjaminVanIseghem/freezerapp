@@ -42,7 +42,7 @@ export class FreezerDetailComponent implements OnInit {
 
   onSubmitCompartment() {
     const comp = new Compartment(this.fg.value.name);
-    this._freezerDataService.addCompartmentToFreezer(comp, this._freezer).subscribe(
+    this._freezerDataService.addCompartmentToFreezer(comp, this._freezer.id).subscribe(
         () => {},
         (error: HttpErrorResponse) => {
           this.errorMsg = `Error ${error.status} while adding

@@ -41,8 +41,8 @@ export class FreezerDataService {
           .pipe(map(Freezer.fromJSON));
     }
     //WORKS
-    addCompartmentToFreezer(comp: Compartment, fre: Freezer): Observable<Compartment> {
-      const theUrl = `${this._appUrl}freezers/${fre.id}/compartments`;
+    addCompartmentToFreezer(comp: Compartment, freid: string): Observable<Compartment> {
+      const theUrl = `${this._appUrl}freezers/${freid}/compartments`;
       return this.http
           .post(theUrl, comp)
           .pipe(map(Compartment.fromJSON));
