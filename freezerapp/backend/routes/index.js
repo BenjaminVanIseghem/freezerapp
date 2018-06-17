@@ -126,7 +126,7 @@ router.post('/API/freezers/', function (req, res, next) {
     });
 });
 
-//post new compartment in freezer   XXXXXXX
+//post new compartment in freezer  WORKS
 router.post('/API/freezers/:freezer/compartments', function(req, res, next) {
   let comp = new Compartment({
       name : req.body.name
@@ -182,7 +182,7 @@ router.delete('/API/freezers/:freezer', function(req, res) {
 
 //delete compartment in freezer WORKS
 router.delete('/API/freezers/:freezer/compartments/:comp', function(req, res) {
-  Item.remove({ _id: {$in: req.freezer.compartment}}, 
+  Item.remove({ _id: {$in: req.compartment.items}}, 
     function (err) {
       if (err) return next(err);
 

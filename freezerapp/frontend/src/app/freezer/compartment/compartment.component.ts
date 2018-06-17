@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Compartment } from './compartment.model';
+import { FreezerDataService } from '../freezer-data.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-compartment',
@@ -7,10 +9,13 @@ import { Compartment } from './compartment.model';
   styleUrls: ['./compartment.component.css']
 })
 export class CompartmentComponent implements OnInit {
+  public errorMsg: string;
   @Input() public compartment: Compartment;
   private _size: number;
+  
+  @Output() public deleteCompartment = new EventEmitter<Compartment>();
 
-  constructor() {
+  constructor(private _freezerDataService : FreezerDataService) {
 
    }
 
@@ -21,5 +26,4 @@ export class CompartmentComponent implements OnInit {
   get size(): number{
     return this._size;
   }
-
 }

@@ -48,6 +48,13 @@ export class FreezerDataService {
           .pipe(map(Compartment.fromJSON));
     }
 
+    removeCompartmentFromFreezer(comp: Compartment, freid: string): Observable<Compartment>{
+      const theUrl = `${this._appUrl}freezers/${freid}/compartments/${comp.id}`;
+      return this.http
+          .delete(theUrl)
+          .pipe(map(Compartment.fromJSON));
+    }
+
     getItems(freid: string, compid: string): Observable<Item[]>{
       return this.http
         .get('${this._appUrl}freezers/${freid}/compartments/${compid}/items')

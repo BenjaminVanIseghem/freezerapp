@@ -51,8 +51,14 @@ export class FreezerDetailComponent implements OnInit {
       );
   }
 
-  removeCompartment(){
-    
+  removeCompartment(comp: Compartment){
+    this._freezerDataService.removeCompartmentFromFreezer(comp, this._freezer.id).subscribe(
+      (c) => {this._freezer.removeCompartment(c)},
+      (error: HttpErrorResponse) => {
+        this.errorMsg = `Error ${error.status} while adding
+          compartment for ${comp.name}: ${error.error}`;
+      }
+    );
   }
 
 }

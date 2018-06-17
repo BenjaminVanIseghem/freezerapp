@@ -46,4 +46,7 @@ export class Freezer{
       addCompartment(comp : Compartment){
         this._compartments.push(comp);
       }
+      removeCompartment(comp : Compartment){
+        this._compartments = this._compartments.filter(c => c.id !== comp.id);
+      }
 }
