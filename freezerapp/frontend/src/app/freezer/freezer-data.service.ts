@@ -47,7 +47,7 @@ export class FreezerDataService {
           .post(theUrl, comp)
           .pipe(map(Compartment.fromJSON));
     }
-
+    //WOKRS
     removeCompartmentFromFreezer(comp: Compartment, freid: string): Observable<Compartment>{
       const theUrl = `${this._appUrl}freezers/${freid}/compartments/${comp.id}`;
       return this.http
