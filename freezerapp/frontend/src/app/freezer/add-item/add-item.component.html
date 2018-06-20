@@ -1,0 +1,27 @@
+<div class="ui segment">
+    <div *ngIf='errorMsg' class="ui error message">{{errorMsg}}</div>
+    <form class='ui form' [formGroup]='itemForm' (ngSubmit)='OnSubmitItem()'>
+      <h4 class="ui dividing header">add Item</h4>
+      <div class='field'>
+        <label for='name_id'>name:</label>
+        <input type='text' id='name_id' formControlName='name'>
+      </div>
+      <!-- <div *ngIf='item.get("name").errors?.required && item.get("name").touched' 
+        class='ui pointing red basic label'>
+        error! this is required
+      </div> -->
+      <div>
+        <label for='freezers_id'>freezer:</label>
+        <select id='freezers_id' formControlName='freezers'>
+          <option *ngFor='let freezer of _freezersArr' value={{freezer.name}}>{{freezer.name}}</option>
+        </select>
+      </div>
+      
+
+      <button type="submit" class="ui positive right button">
+          add item
+      </button>
+      
+  </form>
+</div>
+  

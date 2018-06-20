@@ -13,6 +13,7 @@ import { FreezerDetailComponent } from "./freezer-detail/freezer-detail.componen
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FreezerFilterPipe } from './freezer-filter.pipe';
 import { FreezerResolver } from "./freezer-resolver";
+import { AddItemComponent } from "./add-item/add-item.component";
 
 
 const routes = [
@@ -22,7 +23,8 @@ const routes = [
             resolve: { freezer : FreezerResolver},
             child:{path: 'compartment/:compid', component: CompartmentComponent}
     },
-    { path: 'add', component: AddFreezerComponent}
+    { path: 'add', component: AddFreezerComponent},
+    { path: 'additem', component: AddItemComponent}
   ];
   @NgModule({
     imports: [
@@ -40,6 +42,7 @@ const routes = [
         FreezerDetailComponent,
         FreezerListComponent,
         AddFreezerComponent,
+        AddItemComponent,
         FreezerFilterPipe
     ],
     providers: [
