@@ -7,7 +7,7 @@
         </div>
         <ul class="ui list">
           <li *ngFor='let comp of _freezer.compartments'>
-            <app-compartment [compartment]='comp'></app-compartment>
+            <p>{{comp.name}} <span class="badge">{{comp.items.length}}</span></p>
             <button class="ui icon button" (click)='removeCompartment(comp)'>
                 <i class="trash outline icon"></i>
             </button>

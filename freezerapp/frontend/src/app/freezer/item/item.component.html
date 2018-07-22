@@ -1,16 +1,1 @@
-<div class="ui card">
-  <div class="content">
-    <a class="header">{{ item.name }}</a>
-      <div class="meta">
-        <span class="date">added on {{item.created | date}}</span>
-      </div>
-      <ul class="ui list">
-        <li>
-          amount: {{item.amount}}
-        </li>
-      </ul>
-      <button class="ui icon button" (click)="removeFreezer()">
-        <i class="trash outline icon"></i>
-      </button>
-  </div>
-</div>
+<p>{{item.name}}, {{item.amount}}</p>
