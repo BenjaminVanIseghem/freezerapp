@@ -5,22 +5,36 @@
       <div class='field'>
         <label for='name_id'>name:</label>
         <input type='text' id='name_id' formControlName='name'>
-      </div>
-      <!-- <div *ngIf='item.get("name").errors?.required && item.get("name").touched' 
-        class='ui pointing red basic label'>
-        error! this is required
-      </div> -->
-      <div>
-        <label for='freezers_id'>freezer:</label>
-        <select id='freezers_id' formControlName='freezers'>
-          <option *ngFor='let freezer of _freezersArr' value={{freezer.name}}>{{freezer.name}}</option>
-        </select>
+        <!-- Error for name field if empty after it's touched -->
+        <div *ngIf='itemForm.get("name").errors?.required && itemForm.get("name").touched' class='ui pointing red basic label'>
+          error! this is required
+        </div>
       </div>
       
+      
+      <!-- dropdown list of all freezers -->
+      <div class="field">
+        <div>
+          <label for='freezers_id'>freezer:</label>
+          <select id='freezers_id' formControlName='freezers'>
+            <option *ngFor='let freezer of _freezersArr' value={{freezer.name}}>{{freezer.name}}</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- dropdown list of all compartments of chosen freezer -->
+      <div class="field">
+        <label for='compartments_id'>Compartment:</label>
+        <select id='compartments_id' formControlName='compartments'>
+          <option *ngFor='let comp of _compArr' value={{comp.name}}>{{comp.name}}</option>
+        </select>
+      </div>
 
+      <!-- submit button -->
       <button type="submit" class="ui positive right button">
-          add item
+        add item
       </button>
+      
       
   </form>
 </div>

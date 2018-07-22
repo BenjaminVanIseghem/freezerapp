@@ -60,5 +60,12 @@ export class FreezerDataService {
         .get('${this._appUrl}freezers/${freid}/compartments/${compid}/items')
         .pipe(map((list:any): Item[] => list.map(Item.fromJSON)));
     }
+
+    addItemToCompartment(item: Item, freid: string, compId: string): Observable<Item>{
+      const theUrl = `${this._appUrl}freezers/${freid}/compartments/${compId}/items`;
+      return this.http
+          .post(theUrl, item)
+          .pipe(map(Item.fromJSON));
+    }
   }
 

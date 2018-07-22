@@ -3,8 +3,8 @@ let mongoose = require('mongoose');
 let CompartmentSchema = new mongoose.Schema({
   name : String,
   items : [{
-   type: mongoose.Schema.Types.ObjectId, 
-   ref: 'Item'
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'Item'
     }
   ],
   created : {type: Date, default: Date.now}
