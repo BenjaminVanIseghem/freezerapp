@@ -3,19 +3,26 @@
     <form class='ui form' [formGroup]='itemForm' (ngSubmit)='OnSubmitItem()'>
       <h4 class="ui dividing header">add Item</h4>
       <div class='field'>
-        <label for='name_id'>name:</label>
+        <label for='name_id'>Name:</label>
         <input type='text' id='name_id' formControlName='name'>
         <!-- Error for name field if empty after it's touched -->
         <div *ngIf='itemForm.get("name").errors?.required && itemForm.get("name").touched' class='ui pointing red basic label'>
           error! this is required
         </div>
       </div>
-      
-      
+      <div class='field'>
+        <label for='quantity_id'>Quantity:</label>
+        <input type='number' id='quantity_id' formControlName='quantity'>
+        <!-- Error for name field if empty after it's touched -->
+        <div *ngIf='itemForm.get("quantity").errors?.required && itemForm.get("quantity").touched' class='ui pointing red basic label'>
+          error! this is required
+        </div>
+      </div>
+
       <!-- dropdown list of all freezers -->
       <div class="field">
         <div>
-          <label for='freezers_id'>freezer:</label>
+          <label for='freezers_id'>Freezer:</label>
           <select id='freezers_id' formControlName='freezers'>
             <option *ngFor='let freezer of _freezersArr' value={{freezer.name}}>{{freezer.name}}</option>
           </select>

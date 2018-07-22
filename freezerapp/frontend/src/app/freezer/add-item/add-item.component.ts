@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Freezer } from '../freezer/freezer.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Compartment } from '../compartment/compartment.model';
+import { Item } from '../item/item.model';
 
 @Component({
   selector: 'app-add-item',
@@ -22,6 +23,7 @@ export class AddItemComponent implements OnInit {
   ngOnInit() {
     this.itemForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
+      quantity: ['', [Validators.required]],
       freezers: ['', [Validators.required]],
       compartments: ['', [Validators.required]]
     });
@@ -54,7 +56,24 @@ export class AddItemComponent implements OnInit {
   }
   //submit the new item
   OnSubmitItem(){
-    
-    console.log("added");
+    //new item with data from form
+    let it = new Item(this.itemForm.get('name').value, this.itemForm.get('quantity').value);
+
+    //find the id of the correct freezer
+    let freid;
+    for(let fre of this._freezersArr){
+      if(fre.name == this.itemForm.get('freezers').value)
+        freid = fre.id;
+    }
+
+    //find the id of the correct compartment
+    let compid;
+    for(let comp of this._compArr){
+      if(comp.name == this.itemForm.get('compartments').value)
+        compid = comp.id;
+    }
+
+    //pass it on to freezerdataservice to save to the backend
+    this._freezerDataService.addItemToCompartment(it, freid, compid).subscribe();
   }
 }
