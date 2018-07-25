@@ -16,7 +16,7 @@ export class CompartmentComponent implements OnInit {
   @Input() public freezer: Freezer;
   public items: Item[]
   
-  // @Output() public deleteCompartment = new EventEmitter<Compartment>();
+   @Output() public deleteCompartment = new EventEmitter<Compartment>();
 
   constructor(private _freezerDataService : FreezerDataService) {
 
@@ -33,7 +33,7 @@ export class CompartmentComponent implements OnInit {
       this.items = comp.items;
     })
   }
-  // removeItem() {
-  //   this.deleteCompartment.emit(this.compartment);
-  // }
+  removeCompartment() {
+    this.deleteCompartment.emit(this.compartment);
+  }
 }

@@ -1,25 +1,7 @@
-<!-- <div class="ui card">
-  <div *ngIf='errorMsg' class="ui error message">{{errorMsg}}</div>
-    <div class="content">
-        <div class="header">Compartments for {{ freezer.name }}</div>
-        <div class="meta">
-          <span class="date">added on {{freezer.created | date}}</span>
-        </div>
-        <ul class="ui list">
-          <li *ngFor='let comp of _freezer.compartments'>
-            <p>{{comp.name}} <span class="badge">{{comp.items.length}}</span></p>
-            <button class="ui icon button" (click)='removeCompartment(comp)'>
-                <i class="trash outline icon"></i>
-            </button>
-          </li>
-        </ul>
-    </div>
-</div> -->
-
 <!-- create a ui card for each compartment -->
 <div class='ui basic segment'>
   <div class='ui cards'>
-      <app-compartment *ngFor='let comp of _freezer.compartments' [freezer]='_freezer'[compartment]='comp'></app-compartment>
+      <app-compartment *ngFor='let comp of _freezer.compartments' [freezer]='_freezer'[compartment]='comp' (deleteCompartment)='removeCompartment($event)'></app-compartment>
   </div>
 </div>
 

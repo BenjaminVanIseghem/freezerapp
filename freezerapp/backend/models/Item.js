@@ -3,7 +3,8 @@ let mongoose = require('mongoose');
 let ItemSchema = new mongoose.Schema({
   name : String,
   amount: { type: Number, default: 1},
-  added : { type: Date, default: Date.now }
+  added : { type: Date, default: Date.now },
+  details: String
 });	
 
 ItemSchema.pre('remove', function (next) {

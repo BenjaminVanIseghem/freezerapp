@@ -4,17 +4,20 @@ export class Item{
     private _name : string;
     private _amount: number;
     private _added: Date;
+    private _details: string;
 
-    constructor(name : string, amount: number){
+    constructor(name : string, amount: number, details?: string){
         this._name = name;
         this._amount = amount;
         this._added = new Date();
+        this._details = details;
     }
 
     static fromJSON(json: any): Item {
         const it = new Item(
           json.name,
-          json.amount
+          json.amount,
+          json.details
         );
         it._id = json._id;
         it._added = json._added;
@@ -26,7 +29,8 @@ export class Item{
           _id: this._id,
           name: this._name,
           amount : this._amount,
-          added: this._added
+          added: this._added,
+          details: this._details
         };
       }
 
@@ -41,5 +45,8 @@ export class Item{
       }
       get added(): Date{
           return this._added;
+      }
+      get details(): string{
+          return this._details;
       }
 }

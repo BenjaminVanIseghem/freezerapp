@@ -14,6 +14,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FreezerFilterPipe } from './freezer-filter.pipe';
 import { FreezerResolver } from "./freezer-resolver";
 import { AddItemComponent } from "./add-item/add-item.component";
+import { CompartmentDetailComponent } from './compartment-detail/compartment-detail.component';
 
 
 const routes = [
@@ -43,7 +44,8 @@ const routes = [
         FreezerListComponent,
         AddFreezerComponent,
         AddItemComponent,
-        FreezerFilterPipe
+        FreezerFilterPipe,
+        CompartmentDetailComponent
     ],
     providers: [
         FreezerDataService,
