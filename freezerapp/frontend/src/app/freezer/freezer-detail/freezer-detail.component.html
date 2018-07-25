@@ -1,4 +1,4 @@
-<div class="ui card">
+<!-- <div class="ui card">
   <div *ngIf='errorMsg' class="ui error message">{{errorMsg}}</div>
     <div class="content">
         <div class="header">Compartments for {{ freezer.name }}</div>
@@ -14,8 +14,17 @@
           </li>
         </ul>
     </div>
+</div> -->
+
+<!-- create a ui card for each compartment -->
+<div class='ui basic segment'>
+  <div class='ui cards'>
+      <app-compartment *ngFor='let comp of _freezer.compartments' [freezer]='_freezer'[compartment]='comp'></app-compartment>
+  </div>
 </div>
 
+
+  <!-- form to add a new compartment -->
   <form class='ui form' [formGroup]='fg' (ngSubmit)='onSubmitCompartment()'>
     <h4 class="ui dividing header">add compartment</h4>
     <div class='field'>

@@ -47,7 +47,7 @@ export class FreezerDataService {
           .post(theUrl, comp)
           .pipe(map(Compartment.fromJSON));
     }
-    //WOKRS
+    //WORKS
     removeCompartmentFromFreezer(comp: Compartment, freid: string): Observable<Compartment>{
       const theUrl = `${this._appUrl}freezers/${freid}/compartments/${comp.id}`;
       return this.http
@@ -55,10 +55,18 @@ export class FreezerDataService {
           .pipe(map(Compartment.fromJSON));
     }
 
-    getItems(freid: string, compid: string): Observable<Item[]>{
+    getCompartment(freezer: Freezer, comp: Compartment): Observable<Compartment>{
+      const theUrl = `${this._appUrl}freezers/${freezer.id}/compartments/${comp.id}`;
       return this.http
-        .get('${this._appUrl}freezers/${freid}/compartments/${compid}/items')
-        .pipe(map((list:any): Item[] => list.map(Item.fromJSON)));
+          .get(theUrl)
+          .pipe(map(Compartment.fromJSON))
+    }
+
+    getItems(freid: string, compid: string): Observable<Item[]>{
+      const theUrl = `${this._appUrl}freezers/${freid}/compartments/${compid}`;
+      return this.http
+        .get(theUrl)
+        .pipe(map((list:any[]): Item[] => list.map(Item.fromJSON)));
     }
 
     addItemToCompartment(item: Item, freid: string, compId: string): Observable<Item>{

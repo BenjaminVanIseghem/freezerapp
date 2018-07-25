@@ -79,7 +79,7 @@ router.get('/API/freezers/:freezer/compartments/:comp', function(req, res, next)
 
 //get all compartments in freezer WORKS
 router.get('/API/freezers/:freezer/compartments/', function(req, res, next) {
-  let query = Compartment.find().populate('items');
+  let query = Compartment.find();
   query.exec(function(err, compartments) {
     if (err) return next(err);
     res.json(req.freezer.compartments);

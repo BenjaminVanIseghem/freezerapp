@@ -4,6 +4,7 @@
       <div class="meta">
         <span class="date">added on {{freezer.created | date}}</span>
       </div>
+      <!-- list of compartments with trash icons -->
       <ul class="ui list">
         <li *ngFor='let comp of freezer.compartments'>
           <p>{{comp.name}} <span class="badge">{{comp.items.length}}</span></p>

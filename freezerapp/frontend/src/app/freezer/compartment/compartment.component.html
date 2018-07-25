@@ -1,2 +1,18 @@
-<p>{{compartment.name}} <span class="badge">{{size}}</span></p>
+<div class="ui card">
+    <div class="content">
+      <a class="header">{{ compartment.name }}</a>
+        <div class="meta">
+          <span class="date">added on {{freezer.created | date}}</span>
+        </div>
+        <!-- list of items with trash icons -->
+        <ul class="ui list">
+          <li *ngFor='let item of items'>
+            <p>{{item.name}}</p>
+          </li>
+        </ul>
+        <!-- <button class="ui icon button" (click)="removeItem()">
+          <i class="trash outline icon"></i>
+        </button> -->
+    </div>
+</div>
 
