@@ -54,21 +54,21 @@ export class FreezerDataService {
           .delete(theUrl)
           .pipe(map(Compartment.fromJSON));
     }
-
-    getCompartment(freezer: Freezer, comp: Compartment): Observable<Compartment>{
-      const theUrl = `${this._appUrl}freezers/${freezer.id}/compartments/${comp.id}`;
+    //WORKS Get a single compartment
+    getCompartment(freezerid: string, compid: string): Observable<Compartment>{
+      const theUrl = `${this._appUrl}freezers/${freezerid}/compartments/${compid}`;
       return this.http
           .get(theUrl)
           .pipe(map(Compartment.fromJSON))
     }
-
+    //WORKS
     getItems(freid: string, compid: string): Observable<Item[]>{
       const theUrl = `${this._appUrl}freezers/${freid}/compartments/${compid}`;
       return this.http
         .get(theUrl)
         .pipe(map((list:any[]): Item[] => list.map(Item.fromJSON)));
     }
-
+    //WORKS
     addItemToCompartment(item: Item, freid: string, compId: string): Observable<Item>{
       const theUrl = `${this._appUrl}freezers/${freid}/compartments/${compId}/items`;
       return this.http

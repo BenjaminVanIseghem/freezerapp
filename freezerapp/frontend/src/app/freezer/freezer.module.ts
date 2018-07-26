@@ -1,7 +1,7 @@
 import { RouterModule, ChildrenOutletContexts } from "@angular/router";
 import { FreezerDataService } from "./freezer-data.service";
 import { CompartmentComponent } from "./compartment/compartment.component";
-import { NgModule } from "@angular/core";
+import { NgModule, Component } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from '@angular/http';
 import { CommonModule } from "@angular/common";
@@ -15,14 +15,18 @@ import { FreezerFilterPipe } from './freezer-filter.pipe';
 import { FreezerResolver } from "./freezer-resolver";
 import { AddItemComponent } from "./add-item/add-item.component";
 import { CompartmentDetailComponent } from './compartment-detail/compartment-detail.component';
+import { CompartmentResolver } from "../compartment-resolver";
 
 
 const routes = [
     { path: 'list', component: FreezerListComponent},
-    { 
-        path: 'detail/:id', component: FreezerDetailComponent,
-            resolve: { freezer : FreezerResolver},
-            child:{path: 'compartment/:compid', component: CompartmentComponent}
+    { path: 'detail/:id', 
+        component: FreezerDetailComponent,
+        resolve: { freezer : FreezerResolver}
+    },
+    { path: 'detail/:id/compartment/:compid/detail', 
+        component: CompartmentDetailComponent, 
+        resolve:{compartment: CompartmentResolver}
     },
     { path: 'add', component: AddFreezerComponent},
     { path: 'additem', component: AddItemComponent}
@@ -41,15 +45,17 @@ const routes = [
         CompartmentComponent,
         ItemComponent,
         FreezerDetailComponent,
+        CompartmentDetailComponent,
         FreezerListComponent,
         AddFreezerComponent,
         AddItemComponent,
         FreezerFilterPipe,
-        CompartmentDetailComponent
+        
     ],
     providers: [
         FreezerDataService,
-        FreezerResolver
+        FreezerResolver,
+        CompartmentResolver
      ]
   })
   export class FreezerModule { }
