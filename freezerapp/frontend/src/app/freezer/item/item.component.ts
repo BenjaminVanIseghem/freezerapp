@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
 import { Item } from './item.model';
 import { Freezer } from '../freezer/freezer.model';
 import { Compartment } from '../compartment/compartment.model';
@@ -17,6 +17,8 @@ export class ItemComponent implements OnInit {
 
   constructor() { }
 
+  
+
   ngOnInit() {
     console.log(this.item);
     console.log(this.freezer.name + ', ' + this.compartment.name)
@@ -24,5 +26,11 @@ export class ItemComponent implements OnInit {
   
   removeItem() {
     this.deleteItem.emit(this.item);
+  }
+  addAmount(){
+    this.item.add();
+  }
+  substractAmount(){
+    this.item.substract();
   }
 }

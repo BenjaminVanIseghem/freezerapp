@@ -49,4 +49,10 @@ export class Item{
       get details(): string{
           return this._details;
       }
+      add(){
+          this._amount++;
+      }
+      substract(){
+          this._amount--;
+      }
 }

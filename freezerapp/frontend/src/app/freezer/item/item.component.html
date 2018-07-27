@@ -6,6 +6,8 @@
     </div>
     <div><h5>Amount:</h5> {{item.amount}}</div>
     <div><h5>Details:</h5> {{item.details}}</div>
+    <button class="glyphicon glyphicon-plus" (click)="addAmount()"></button>
+    <button class="glyphicon glyphicon-minus" (click)="substractAmount()"></button>
     <button class="ui icon button" (click)="removeItem()">
       <i class="trash outline icon"></i>
     </button>
