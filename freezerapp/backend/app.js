@@ -3,14 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let passport = require('passport');
 
 //require data items
 require('./models/Freezer');
 require('./models/Compartment');
 require('./models/Item');
 require('./models/User');
-//require('./config/passport');
-//let passport = require('passport');
+require('./config/passport');
 
 
 //mongoose
@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(passport.initialize());
+app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
