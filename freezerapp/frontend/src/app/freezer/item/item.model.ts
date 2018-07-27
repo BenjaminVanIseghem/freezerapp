@@ -20,7 +20,7 @@ export class Item{
           json.details
         );
         it._id = json._id;
-        it._added = json._added;
+        it._added = json.added;
         return it;
       }
 

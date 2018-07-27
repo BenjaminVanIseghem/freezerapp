@@ -27,7 +27,7 @@ export class Compartment{
           json.name
         );
         comp._id = json._id;
-        comp._items = json.items;
+        comp._items = json.items.map(Item.fromJSON);
         return comp;
       }
 
@@ -37,5 +37,12 @@ export class Compartment{
           name: this._name,
           items: this._items
         };
+      }
+
+      addItem(item : Item){
+        this._items.push(item);
+      }
+      removeItem(item : Item){
+        this._items = this._items.filter(it => it.id !== item.id);
       }
 }

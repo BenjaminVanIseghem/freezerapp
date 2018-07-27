@@ -1,15 +1,13 @@
 <div class="ui card">
-    <div class="content">
-      <a class="header">{{ item.name }}</a>
-        <div class="meta">
-          <span class="date">added on {{item.created | date}}</span>
-        </div>
-        <ul>
-          <li>{{item.amount}}</li>
-          <li>{{item.details}}</li>
-        </ul>>
-        <button class="ui icon button" (click)="removeItem()">
-          <i class="trash outline icon"></i>
-        </button>
+  <div class="content">
+    <a class="header">{{ item.name }}</a>
+    <div class="meta">
+      <span class="date">added on {{item.added | date}}</span>
     </div>
-</div>
+    <div><h5>Amount:</h5> {{item.amount}}</div>
+    <div><h5>Details:</h5> {{item.details}}</div>
+    <button class="ui icon button" (click)="removeItem()">
+      <i class="trash outline icon"></i>
+    </button>
+  </div>
+</div> 

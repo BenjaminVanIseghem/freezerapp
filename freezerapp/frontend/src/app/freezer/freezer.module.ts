@@ -26,7 +26,7 @@ const routes = [
     },
     { path: 'detail/:id/compartment/:compid/detail', 
         component: CompartmentDetailComponent, 
-        resolve:{compartment: CompartmentResolver}
+        resolve:{ compartment : CompartmentResolver, freezer :  FreezerResolver}
     },
     { path: 'add', component: AddFreezerComponent},
     { path: 'additem', component: AddItemComponent}

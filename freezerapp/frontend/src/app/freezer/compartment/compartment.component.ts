@@ -28,7 +28,7 @@ export class CompartmentComponent implements OnInit {
     //it only has the item id, no other details
     //so all the id's are there but the other data is just gone
     //the getCompartment method I created to fix this may seem unnecessary but I've spent too much time on this.
-    //With this, it works
+    //With this code, it works
     this._freezerDataService.getCompartment(this.freezer.id, this.compartment.id).subscribe(comp =>{
       this.items = comp.items;
     })

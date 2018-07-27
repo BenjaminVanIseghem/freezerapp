@@ -1,8 +1,36 @@
 <!-- create a ui card for each item -->
 <div class='ui basic segment'>
-    <div class='ui cards'>
-        <app-item [item]='item'></app-item>
-    </div>
+  <div class='ui cards'>
+    <app-item *ngFor='let it of _compartment.items' [item]='it' [freezer]='_freezer' [compartment]='_compartment' (deleteItem)='removeItem($event)'></app-item>
+  </div>
+</div>
+
+<!-- form to add a new item , 3 fields-->
+<form class='ui form' [formGroup]='fg' (ngSubmit)='onSubmitItem()'>
+  <h4 class="ui dividing header">add item</h4>
+  <div class='field'>
+    <label for='name_id'>name:</label>
+    <input type='text' id='name_id' formControlName='name'>
+  </div>
+  <div *ngIf='fg.get("name").errors?.required && fg.get("name").touched' class='ui pointing red basic label'>
+    error! this is required
+  </div>
+  <div class='field'>
+    <label for='amount_id'>amount:</label>
+    <input type='number' id='amount_id' formControlName='amount'>
+  </div>
+  <div *ngIf='fg.get("amount").errors?.required && fg.get("amount").touched' class='ui pointing red basic label'>
+    error! this is required
+  </div>
+  <div class='field'>
+    <label for='detail_id'>details:</label>
+    <input type='text' id='detail_id' formControlName='detail'>
+  </div>
+  <div *ngIf='fg.get("detail").errors?.required && fg.get("detail").touched' class='ui pointing red basic label'>
+    error! this is required
   </div>
 
-  
+  <button type="submit" class="ui positive right button">
+    add compartment
+  </button>
+</form>

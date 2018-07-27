@@ -13,7 +13,6 @@ export class FreezerDataService {
 
     private readonly _appUrl = '/API/';
 
-
     constructor(private http : HttpClient) {
     }
     //WORKS
@@ -55,8 +54,8 @@ export class FreezerDataService {
           .pipe(map(Compartment.fromJSON));
     }
     //WORKS Get a single compartment
-    getCompartment(freezerid: string, compid: string): Observable<Compartment>{
-      const theUrl = `${this._appUrl}freezers/${freezerid}/compartments/${compid}`;
+    getCompartment(freid: string, compid: string): Observable<Compartment>{
+      const theUrl = `${this._appUrl}freezers/${freid}/compartments/${compid}`;
       return this.http
           .get(theUrl)
           .pipe(map(Compartment.fromJSON))
@@ -69,10 +68,16 @@ export class FreezerDataService {
         .pipe(map((list:any[]): Item[] => list.map(Item.fromJSON)));
     }
     //WORKS
-    addItemToCompartment(item: Item, freid: string, compId: string): Observable<Item>{
-      const theUrl = `${this._appUrl}freezers/${freid}/compartments/${compId}/items`;
+    addItemToCompartment(item: Item, freid: string, compid: string): Observable<Item>{
+      const theUrl = `${this._appUrl}freezers/${freid}/compartments/${compid}/items`;
       return this.http
           .post(theUrl, item)
+          .pipe(map(Item.fromJSON));
+    }
+    removeItem(item: Item, freid: string, compid: string): Observable<Item>{
+      const theUrl = `${this._appUrl}freezers/${freid}/compartments/${compid}/items/${item.id}`;
+      return this.http
+          .delete(theUrl)
           .pipe(map(Item.fromJSON));
     }
   }

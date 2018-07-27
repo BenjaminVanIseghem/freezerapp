@@ -55,7 +55,7 @@ export class FreezerDetailComponent implements OnInit {
     this._freezerDataService.removeCompartmentFromFreezer(comp, this._freezer.id).subscribe(
       (c) => {this._freezer.removeCompartment(c)},
       (error: HttpErrorResponse) => {
-        this.errorMsg = `Error ${error.status} while adding
+        this.errorMsg = `Error ${error.status} while deleting
           compartment for ${comp.name}: ${error.error}`;
       }
     );
