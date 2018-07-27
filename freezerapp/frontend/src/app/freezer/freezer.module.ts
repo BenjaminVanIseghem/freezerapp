@@ -16,6 +16,8 @@ import { FreezerResolver } from "./freezer-resolver";
 import { AddItemComponent } from "./add-item/add-item.component";
 import { CompartmentDetailComponent } from './compartment-detail/compartment-detail.component';
 import { CompartmentResolver } from "../compartment-resolver";
+import { RegisterComponent } from "../user/register/register.component";
+import { AuthenticationService } from "../user/authentication.service";
 
 
 const routes = [

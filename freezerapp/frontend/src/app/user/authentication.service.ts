@@ -17,6 +17,7 @@ function parseJwt(token) {
 export class AuthenticationService {
   private readonly _tokenKey = 'currentUser';
   private _user$: BehaviorSubject<string>;
+  public redirectUrl: string;
 
   constructor(private http: HttpClient) {
     let parsedToken = parseJwt(localStorage.getItem(this._tokenKey));
@@ -29,6 +30,16 @@ export class AuthenticationService {
     }
     this._user$ = new BehaviorSubject<string>(parsedToken && parsedToken.username);
   }
+
+  get user$(): BehaviorSubject<string> {
+    return this._user$;
+  }
+
+  get token(): string {
+    const localToken = localStorage.getItem(this._tokenKey);
+    return !!localToken ? localToken : '';
+  }
+
   login(username: string, password: string): Observable<boolean> {
     return this.http.post(`/API/users/login`, { username, password }).pipe(
       map((res: any) => {

@@ -3,7 +3,7 @@ let router = express.Router();
 //jwt checking middleware
 let jwt = require('express-jwt');
 //setting secret in express
-//let auth = jwt({secret: process.env.FREEZER_BACKEND_SECRET});
+let auth = jwt({secret: process.env.FREEZER_BACKEND_SECRET});
 
 //Add the data objects via mongoose
 let mongoose = require('mongoose');
