@@ -42,7 +42,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post(`/${this._url}/login`, { username, password }).pipe(
+    return this.http.post(`${this._url}/login`, { username, password }).pipe(
       map((res: any) => {
         const token = res.token;
         if (token) {

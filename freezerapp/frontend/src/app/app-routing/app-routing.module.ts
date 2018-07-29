@@ -1,9 +1,7 @@
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { SelectivePreloadStrategy } from './SelectivePreloadStrategy';
-import { RegisterComponent } from '../user/register/register.component';
 import { AuthGuardService } from '../user/auth-guard.service';
 
 const appRoutes: Routes = [
