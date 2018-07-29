@@ -11,7 +11,6 @@ require('./models/Compartment');
 require('./models/Item');
 require('./models/User');
 require('./config/passport');
-let passport = require('passport');
 
 
 //mongoose

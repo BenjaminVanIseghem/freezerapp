@@ -18,6 +18,7 @@ import { CompartmentDetailComponent } from './compartment-detail/compartment-det
 import { CompartmentResolver } from "../compartment-resolver";
 import { RegisterComponent } from "../user/register/register.component";
 import { AuthenticationService } from "../user/authentication.service";
+import { httpInterceptorProviders } from "../http-interceptors";
 
 
 const routes = [
@@ -55,6 +56,7 @@ const routes = [
         
     ],
     providers: [
+        //httpInterceptorProviders,
         FreezerDataService,
         FreezerResolver,
         CompartmentResolver
