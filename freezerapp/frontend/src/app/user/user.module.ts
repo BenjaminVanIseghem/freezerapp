@@ -8,6 +8,7 @@ import { HttpClientModule } from '../../../node_modules/@angular/common/http';
 import { HttpModule } from '../../../node_modules/@angular/http';
 import { FormsModule, ReactiveFormsModule } from '../../../node_modules/@angular/forms';
 import { AuthGuardService } from './auth-guard.service';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes = [
   { path: 'login', component: LoginComponent},
@@ -24,7 +25,7 @@ const routes = [
   ],
   declarations: [
     LoginComponent, 
-    RegisterComponent
+    RegisterComponent, LogoutComponent
   ],
   providers: [
     AuthenticationService,
