@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   public errorMsg: string;
 
   get passwordControl(): FormControl {
+    //this.user.get('passwordGroup.password');
     return <FormControl>this.user.get('passwordGroup').get('password');
   }
 
