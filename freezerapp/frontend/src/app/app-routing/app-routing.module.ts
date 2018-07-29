@@ -4,17 +4,15 @@ import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { SelectivePreloadStrategy } from './SelectivePreloadStrategy';
 import { RegisterComponent } from '../user/register/register.component';
+import { AuthGuardService } from '../user/auth-guard.service';
 
 const appRoutes: Routes = [
   { 
       path: 'freezer',
+      canActivate:[AuthGuardService],
       loadChildren: 'app/freezer/freezer.module#FreezerModule', 
       data: {preload: true}
     },
-    // { path: 'user',
-    //   loadChildren: 'app/freezer/user/user.module#UserModule',
-    //   data: {preload: true}
-    // },
     { path: '', redirectTo: 'freezer/list', pathMatch: 'full'},
     { path: '**', component: PageNotFoundComponent}
   ];

@@ -55,7 +55,7 @@ const routes = [
         
     ],
     providers: [
-        //httpInterceptorProviders,
+        httpInterceptorProviders,
         FreezerDataService,
         FreezerResolver,
         CompartmentResolver

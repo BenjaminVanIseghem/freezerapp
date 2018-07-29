@@ -8,8 +8,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { FreezerModule } from './freezer/freezer.module';
-import { Freezer } from './freezer/freezer/freezer.model';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -19,6 +18,7 @@ import { Freezer } from './freezer/freezer/freezer.model';
   ],
   imports: [
     BrowserModule,
+    UserModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,

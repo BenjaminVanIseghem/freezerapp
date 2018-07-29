@@ -11,8 +11,9 @@ import { AuthGuardService } from './auth-guard.service';
 import { LogoutComponent } from './logout/logout.component';
 
 const routes = [
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
@@ -25,11 +26,13 @@ const routes = [
   ],
   declarations: [
     LoginComponent, 
-    RegisterComponent, LogoutComponent
+    RegisterComponent, 
+    LogoutComponent
   ],
   providers: [
-    AuthenticationService,
-    AuthGuardService
+    AuthGuardService,
+    AuthenticationService
+    
   ]
 })
 export class UserModule { }
