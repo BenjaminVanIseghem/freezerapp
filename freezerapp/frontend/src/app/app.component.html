@@ -2,13 +2,12 @@
   <h2>Freezer app</h2>
 </div>
 
-<div class="ui five item menu">
+<div class="ui four item menu">
   <a class='item' routerLinkActive='active' routerLink="freezer/list">Freezers</a>
 
   <a class='item' routerLinkActive='active' routerLink="freezer/add">Add Freezer</a>
-  <a class='item' routerLinkActive='active' routerLink="freezer/addcompartment">Add Compartment</a>
   <a class='item' routerLinkActive='active' routerLink="freezer/additem">Add Item</a>
-  <a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/logout">{{currentUser|async}}</a>
+  <a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/logout">logout</a>
   <ng-template #loginlink>
     <a class="item" routerLinkActive='active' routerLink="/login">log in</a>
   </ng-template>
