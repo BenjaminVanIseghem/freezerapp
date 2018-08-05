@@ -16,7 +16,11 @@ require('./config/passport');
 
 //mongoose
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/freezerdb');
+mongoose.connect( process.env.FREEZER_DATABASE ||'mongodb://localhost:27017/freezerdb', { useNewUrlParser: true },
+err => {
+    if (err) throw err;
+    console.log(`Successfully connected to database.`);
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -27,7 +31,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/src'));                  
+app.all('*', (req, res) => {
+  const indexFile = `${path.join(__dirname, 'src')}/index.html`;
+  res.status(200).sendFile(indexFile);
+}); 
 app.use(passport.initialize());
 
 app.use('/', indexRouter);
