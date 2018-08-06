@@ -15,7 +15,7 @@ import { Freezer } from '../freezer/freezer.model';
 export class CompartmentDetailComponent implements OnInit {
 
   public errorMsg: string;
-  private _compartment : Compartment;
+  public _compartment : Compartment;
   private _freezer : Freezer;
   public fg : FormGroup;
 

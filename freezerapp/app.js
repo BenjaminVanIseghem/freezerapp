@@ -31,9 +31,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(__dirname + '/src'));                  
+app.use(express.static(__dirname + '/dist'));                  
 app.all('*', (req, res) => {
-  const indexFile = `${path.join(__dirname, 'src')}/index.html`;
+  const indexFile = `${path.join(__dirname, 'dist')}/index.html`;
   res.status(200).sendFile(indexFile);
 }); 
 app.use(passport.initialize());

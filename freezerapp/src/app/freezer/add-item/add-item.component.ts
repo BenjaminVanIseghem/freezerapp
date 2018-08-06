@@ -15,8 +15,8 @@ export class AddItemComponent implements OnInit {
 
   errorMsg: string;
   public itemForm: FormGroup;
-  private _freezersArr: Freezer[];
-  private _compArr: Compartment[];
+  public _freezersArr: Freezer[];
+  public _compArr: Compartment[];
 
   constructor(private fb: FormBuilder, private _freezerDataService : FreezerDataService) { }
 

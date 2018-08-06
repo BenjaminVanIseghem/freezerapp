@@ -13,7 +13,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FreezerDetailComponent implements OnInit {
   public errorMsg: string;
-  private _freezer : Freezer;
+  public _freezer : Freezer;
   private _size : number;
   public fg : FormGroup;
   
