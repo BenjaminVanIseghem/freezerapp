@@ -16,7 +16,7 @@ require('./config/passport');
 
 //mongoose
 var mongoose = require('mongoose');
-mongoose.connect( process.env.FREEZER_DATABASE ||'mongodb://localhost:27017/freezerdb', { useNewUrlParser: true },
+mongoose.connect( process.env.FREEZER_DATABASE || 'mongodb://benjamin:Polkiu967@ds227570.mlab.com:27570/freezer-db', { useNewUrlParser: true },
 err => {
     if (err) throw err;
     console.log(`Successfully connected to database.`);
