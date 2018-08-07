@@ -32,14 +32,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname + '/dist'));                  
-app.all('*', (req, res) => {
-  const indexFile = `${path.join(__dirname, 'dist')}/index.html`;
-  res.status(200).sendFile(indexFile);
-}); 
+
 app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/API/users', usersRouter);
+
+app.all('*', (req, res) => {
+  const indexFile = `${path.join(__dirname, 'dist')}/index.html`;
+  console.log(indexFile);
+  res.status(200).sendFile(indexFile);
+}); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
