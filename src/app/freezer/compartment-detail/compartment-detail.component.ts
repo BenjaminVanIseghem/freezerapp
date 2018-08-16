@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Compartment } from '../compartment/compartment.model';
-import { HttpErrorResponse } from '../../../../node_modules/@angular/common/http';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { HttpErrorResponse } from 'freezerapp/node_modules/@angular/common/http';
+import { ActivatedRoute } from 'freezerapp/node_modules/@angular/router';
 import { FreezerDataService } from '../freezer-data.service';
-import { FormGroup, FormBuilder, Validators } from '../../../../node_modules/@angular/forms';
+import { FormGroup, FormBuilder, Validators } from 'freezerapp/node_modules/@angular/forms';
 import { Item } from '../item/item.model';
 import { Freezer } from '../freezer/freezer.model';
 
