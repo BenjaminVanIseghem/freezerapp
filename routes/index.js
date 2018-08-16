@@ -64,7 +64,7 @@ router.get('/API/freezers/:freezer', function(req, res, next) {
 });
 
 //get freezer array WORKS
-router.get('/API/freezers/', auth, function(req, res, next) {
+router.get('/API/freezers/', function(req, res, next) {
   let query = Freezer.find().populate('compartments');
   query.exec(function(err, freezers) {
     if (err) return next(err);
@@ -113,7 +113,7 @@ router.get('/API/freezers/:freezer/items', function(req, res, next){
 
 //region post
 //post new empty freezer without compartments WORKS
-router.post('/API/freezers/', function (req, res, next) {
+router.post('/API/freezers/', auth, function (req, res, next) {
     let freezer = new Freezer({
       name: req.body.name, 
       created: req.body.created
@@ -127,7 +127,7 @@ router.post('/API/freezers/', function (req, res, next) {
 });
 
 //post new compartment in freezer  WORKS
-router.post('/API/freezers/:freezer/compartments', function(req, res, next) {
+router.post('/API/freezers/:freezer/compartments', auth, function(req, res, next) {
   let comp = new Compartment({
       name : req.body.name
     });
@@ -148,7 +148,7 @@ router.post('/API/freezers/:freezer/compartments', function(req, res, next) {
 });
 
 //post new item in compartment
-router.post('/API/freezers/:freezer/compartments/:comp/items', function(req, res, next){
+router.post('/API/freezers/:freezer/compartments/:comp/items', auth, function(req, res, next){
   let item = new Item(req.body);
   
   item.save(function(err, item){
@@ -168,7 +168,7 @@ router.post('/API/freezers/:freezer/compartments/:comp/items', function(req, res
 
 //region delete
 //delete freezer WORKS
-router.delete('/API/freezers/:freezer', function(req, res) {
+router.delete('/API/freezers/:freezer', auth, function(req, res) {
   Compartment.remove({ _id: {$in: req.freezer.compartments }}, 
     function (err) {
       if (err) return next(err);
@@ -181,7 +181,7 @@ router.delete('/API/freezers/:freezer', function(req, res) {
 })
 
 //delete compartment in freezer WORKS
-router.delete('/API/freezers/:freezer/compartments/:comp', function(req, res) {
+router.delete('/API/freezers/:freezer/compartments/:comp', auth, function(req, res) {
   Item.remove({ _id: {$in: req.compartment.items}}, 
     function (err) {
       if (err) return next(err);
@@ -194,7 +194,7 @@ router.delete('/API/freezers/:freezer/compartments/:comp', function(req, res) {
 })
 
 //delete item in compartment WORKS
-router.delete('/API/freezers/:freezer/compartments/:comp/items/:item', function(req, res){
+router.delete('/API/freezers/:freezer/compartments/:comp/items/:item', auth, function(req, res){
   Item.remove({ _id: {$in: req.item}},
   function(err){
     if(err) return next(err);
@@ -209,7 +209,7 @@ router.delete('/API/freezers/:freezer/compartments/:comp/items/:item', function(
 
 //404 WORKS
 router.get('**', function(req, res, next){
-  res.send("404 try again");
+  res.send("404 server is not available");
 });
 
 module.exports = router;

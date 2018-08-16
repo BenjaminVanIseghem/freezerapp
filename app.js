@@ -31,7 +31,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(__dirname + '/dist'));                  
+app.use(express.static(__dirname + '/dist')); 
+app.use(express.static(__dirname + '/src'));       
 
 app.use(passport.initialize());
 
@@ -39,15 +40,16 @@ app.use('/', indexRouter);
 app.use('/API/users', usersRouter);
 
 
-app.use('*', (req, res) => {
-  const indexFile = `${path.join(__dirname, '/dist')}/index.html`;
-  console.log(indexFile);
+app.all('*', (req, res) => {
+  const indexFile = `${path.join(__dirname, 'dist')}/index.html`;
   res.status(200).sendFile(indexFile);
 }); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handler
