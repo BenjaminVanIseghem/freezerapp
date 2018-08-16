@@ -64,7 +64,7 @@ router.get('/API/freezers/:freezer', function(req, res, next) {
 });
 
 //get freezer array WORKS
-router.get('/API/freezers/', function(req, res, next) {
+router.get('/API/freezers/', auth, function(req, res, next) {
   let query = Freezer.find().populate('compartments');
   query.exec(function(err, freezers) {
     if (err) return next(err);

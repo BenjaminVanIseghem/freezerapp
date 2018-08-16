@@ -18,6 +18,7 @@ export class Freezer{
           json.name,
           json.compartments.map(Compartment.fromJSON)
         );
+        fre._created = json.created;
         fre._id = json._id;
         return fre;
       }
