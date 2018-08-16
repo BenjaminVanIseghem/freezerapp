@@ -39,7 +39,7 @@ app.use('/', indexRouter);
 app.use('/API/users', usersRouter);
 
 app.all('*', (req, res) => {
-  const indexFile = `${path.join(__dirname, 'dist')}/index.html`;
+  const indexFile = `${path.join(__dirname, '/dist')}/index.html`;
   console.log(indexFile);
   res.status(200).sendFile(indexFile);
 }); 
