@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
-import { HttpErrorResponse } from '../../../../node_modules/@angular/common/http';
+import { HttpErrorResponse } from 'freezerapp/node_modules/@angular/common/http';
 
 @Component({
   selector: 'app-register',

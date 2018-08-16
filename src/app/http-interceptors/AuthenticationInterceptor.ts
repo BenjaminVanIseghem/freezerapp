@@ -1,7 +1,7 @@
-import { Injectable } from "../../../node_modules/@angular/core";
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from "../../../node_modules/@angular/common/http";
+import { Injectable } from "freezerapp/node_modules/@angular/core";
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from "freezerapp/node_modules/@angular/common/http";
 import { AuthenticationService } from "../user/authentication.service";
-import { Observable } from "../../../node_modules/rxjs/Observable";
+import { Observable } from "freezerapp/node_modules/rxjs/Observable";
 
 @Injectable()
 export class AuthenticationInterceptor implements HttpInterceptor {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './user/authentication.service';
-import { Observable } from '../../node_modules/rxjs/Observable';
+import { Observable } from 'freezerapp/node_modules/rxjs/Observable';
 
 @Component({
   selector: 'app-root',
